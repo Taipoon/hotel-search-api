@@ -136,10 +136,7 @@ def hotel_search(place, check_in, check_out, hits=5):
             print('URL 　　　 :', hotel_information_url)
             print('------------------------------------------------')
 
-        print(place, 'の周辺3km圏内に', '全', record_count, '件のホテルが見つかりました。')
-        print('そのうち', last, '件を表示しています。')
-
-        result += f"""\
+            result += f"""\
 ■ ホテル名
 {hotel_name}({hotel_kana_name})
 
@@ -155,6 +152,11 @@ def hotel_search(place, check_in, check_out, hits=5):
 {hotel_information_url}\
 
 
+"""
+        result += f"""\
+\n
+「{place}」の周辺3km圏内に、全{record_count}件のホテルが見つかりました。\n
+そのうち、{last}件を表示しています。\
 """
         return result
 
