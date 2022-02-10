@@ -56,18 +56,15 @@ def handle_message(event):
     # hotel.py extract_words()
     results = hotel.extract_words(push_text)
 
-    msg = results
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=msg)
-    )
-
-    if isinstance(results, tuple):
+    if isinstance(results, dict):
         msg = hotel.hotel_search(*results, hits=5)
     else:
         msg = results
 
-
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text=msg)
+    )
 
 
 if __name__ == '__main__':
