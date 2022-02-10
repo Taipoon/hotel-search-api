@@ -58,7 +58,7 @@ def handle_message(event):
 
     if isinstance(results, dict):
         msg = hotel.hotel_search(place=results['place'],
-                                 check_in=results['chack_in'],
+                                 check_in=results['check_in'],
                                  check_out=results['check_out'],
                                  hits=5)
     else:

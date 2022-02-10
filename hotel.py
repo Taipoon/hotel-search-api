@@ -25,11 +25,11 @@ def extract_words(string: str):
 
     error_msg = []
     if place_search is None:
-        error_msg.append('場所が入力されていません。「新潟駅」のように場所を指定してください。')
+        error_msg.append('● 場所が入力されていません。「新潟駅」のように場所を指定してください。')
     if time_search is None:
-        error_msg.append('チェックイン日が入力されていません。YYYY/mm/ddの形式で入力してください。')
+        error_msg.append('● チェックイン日が入力されていません。YYYY/mm/ddの形式で入力してください。')
     if period_search is None:
-        error_msg.append('宿泊日数が入力されていません。02泊のように泊をつけて、半角数字2桁で入力してください。')
+        error_msg.append('● 宿泊日数が入力されていません。02泊のように泊をつけて、半角数字2桁で入力してください。')
 
     if error_msg:
         error_text = '\n\n'.join(error_msg)
