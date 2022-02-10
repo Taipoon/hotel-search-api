@@ -57,7 +57,10 @@ def handle_message(event):
     results = hotel.extract_words(push_text)
 
     if isinstance(results, dict):
-        msg = hotel.hotel_search(*results, hits=5)
+        msg = hotel.hotel_search(place=results['place'],
+                                 check_in=results['chack_in'],
+                                 check_out=results['check_out'],
+                                 hits=5)
     else:
         msg = results
 
