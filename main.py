@@ -18,13 +18,11 @@ import hotel
 
 app = Flask(__name__)
 
-os.environ['YOUR_CHANNEL_ACCESS_TOKEN'] = \
- 'EHzVhdLA2BAf3L1 + 69lmGLewoACE / 4Ekym9riUQo6W6E69WyaPBebrfE8PHM4DF2bmbKpNZvG7Cj7U6Y3uke5cYh + P0Leb4J1sVgz3uIJFrdCRepiD5i0owdW + Fex'
+os.environ['YOUR_CHANNEL_ACCESS_TOKEN'] = 'EHzVhdLA2BAf3L1 + 69lmGLewoACE / 4Ekym9riUQo6W6E69WyaPBebrfE8PHM4DF2bmbKpNZvG7Cj7U6Y3uke5cYh + P0Leb4J1sVgz3uIJFrdCRepiD5i0owdW + Fex'
 os.environ['YOUR_CHANNEL_SECRET'] = '15201d48c9429e2e5d9e8a6032af16dc'
 
 YOUR_CHANNEL_ACCESS_TOKEN = os.environ['YOUR_CHANNEL_ACCESS_TOKEN']
 YOUR_CHANNEL_SECRET = os.environ['YOUR_CHANNEL_SECRET']
-
 
 line_bot_api = LineBotApi(YOUR_CHANNEL_ACCESS_TOKEN)
 handler = WebhookHandler(YOUR_CHANNEL_SECRET)
@@ -42,7 +40,7 @@ def callback():
 
     # get request body as text
     body = request.get_data(as_text=True)
-    app.logger.info('Request body: ', body)
+    app.logger.info('Request body:', body)
 
     # handle webhook body
     try:
