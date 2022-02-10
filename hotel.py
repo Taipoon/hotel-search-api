@@ -101,7 +101,7 @@ def hotel_search(place, check_in, check_out, hits=5):
         # 検索結果情報
         paging_info = content['pagingInfo']
         # 結果
-        result = '▼▼▼検索結果▼▼▼'
+        result = '▼▼▼検索結果▼▼▼\n'
         for hotel_data in hotels:
             hotel_basic_info = hotel_data[0]['hotelBasicInfo']
             hotel_rating_info = hotel_data[1]['hotelRatingInfo']
@@ -126,32 +126,18 @@ def hotel_search(place, check_in, check_out, hits=5):
             page_count = paging_info['pageCount']
             page = paging_info['page']
 
-            print('ホテル名　　:', hotel_name, f'({hotel_kana_name})')
-            print('評価　　　　:　★', review_average)
-            print('ホテルの説明:', hotel_special)
-            print('住所　　　　:', '〒', postal_code, prefecture, city)
-            print('アクセス　　:', access)
-            print('電話番号　　:', telephone_no)
-            print('最寄り駅　　:', nearest_station)
-            print('URL 　　　 :', hotel_information_url)
-            print('------------------------------------------------')
-
             result += f"""\
 ■ ホテル名
 {hotel_name}({hotel_kana_name})
-
 ■ 住所
 〒{postal_code}
 {prefecture} {city}
-
 ■ アクセス
 最寄り駅：{nearest_station}
 {access}
-
 ■ URL
-{hotel_information_url}\
-
-
+{hotel_information_url}
+-------------------------------
 """
         result += f"""\
 \n
