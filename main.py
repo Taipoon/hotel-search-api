@@ -18,8 +18,6 @@ import hotel
 
 app = Flask(__name__)
 
-os.environ['YOUR_CHANNEL_ACCESS_TOKEN'] = 'EHzVhdLA2BAf3L1 + 69lmGLewoACE / 4Ekym9riUQo6W6E69WyaPBebrfE8PHM4DF2bmbKpNZvG7Cj7U6Y3uke5cYh + P0Leb4J1sVgz3uIJFrdCRepiD5i0owdW + Fex'
-os.environ['YOUR_CHANNEL_SECRET'] = '15201d48c9429e2e5d9e8a6032af16dc'
 
 YOUR_CHANNEL_ACCESS_TOKEN = os.environ['YOUR_CHANNEL_ACCESS_TOKEN']
 YOUR_CHANNEL_SECRET = os.environ['YOUR_CHANNEL_SECRET']
