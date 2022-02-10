@@ -53,13 +53,13 @@ def callback():
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     push_text = event.message.text
-    print(push_text)
     # hotel.py extract_words()
     results = hotel.extract_words(push_text)
     if isinstance(results, tuple):
-        msg = hotel.hotel_search(*results)
+        msg = hotel.hotel_search(*results, hits=5)
     else:
         msg = results
+
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=msg)
