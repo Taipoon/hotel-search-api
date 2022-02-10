@@ -1,12 +1,15 @@
+import os
 import re
 from datetime import datetime, timedelta
 
 import googlemaps
 import requests
 
-GOOGLE_MAP_API_KEY = "AIzaSyC5BIQzL8al95oM1Sr8pK_ceKASyief5F8"
-RAKUTEN_HOTEL_API = "https://app.rakuten.co.jp/services/api/Travel/SimpleHotelSearch/20170426?"
 
+GOOGLE_MAP_API_KEY = os.environ['GOOGLE_MAP_API_KEY']
+
+RAKUTEN_APPLICATION_ID = os.environ['RAKUTEN_APPLICATION_ID']
+RAKUTEN_HOTEL_API_URL = "https://app.rakuten.co.jp/services/api/Travel/SimpleHotelSearch/20170426?"
 
 gmaps = googlemaps.Client(key=GOOGLE_MAP_API_KEY)
 
@@ -66,7 +69,7 @@ def hotel_search(place, check_in, check_out, hits=5):
 
     params = {
         # Application ID
-        'applicationId': '1072645746199118105',
+        'applicationId': str(RAKUTEN_APPLICATION_ID),
         # Version
         'formatVersion': '2',
         # チェックイン日時
@@ -83,7 +86,7 @@ def hotel_search(place, check_in, check_out, hits=5):
         'hits': hits,
         }
     try:
-        response = requests.get(RAKUTEN_HOTEL_API, params=params)
+        response = requests.get(RAKUTEN_HOTEL_API_URL, params=params)
         content = response.json()
         # Error
         error = content.get("error")
