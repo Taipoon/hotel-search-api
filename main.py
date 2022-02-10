@@ -62,7 +62,7 @@ def handle_message(event):
 
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=msg[0][0]['hotelBasicInfo']['hotelName'])
+        TextSendMessage(text=msg)
     )
 
 

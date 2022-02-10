@@ -100,7 +100,8 @@ def hotel_search(place, check_in, check_out, hits=5):
         hotels = content['hotels']
         # 検索結果情報
         paging_info = content['pagingInfo']
-
+        # 結果
+        result = '▼▼▼検索結果▼▼▼'
         for hotel_data in hotels:
             hotel_basic_info = hotel_data[0]['hotelBasicInfo']
             hotel_rating_info = hotel_data[1]['hotelRatingInfo']
@@ -138,7 +139,24 @@ def hotel_search(place, check_in, check_out, hits=5):
         print(place, 'の周辺3km圏内に', '全', record_count, '件のホテルが見つかりました。')
         print('そのうち', last, '件を表示しています。')
 
-        return hotels
+        result += f"""\
+■ ホテル名
+{hotel_name}({hotel_kana_name})
+
+■ 住所
+〒{postal_code}
+{prefecture} {city}
+
+■ アクセス
+最寄り駅：{nearest_station}
+{access}
+
+■ URL
+{hotel_information_url}\
+
+
+"""
+        return result
 
     except Exception as e:
         print(e)
