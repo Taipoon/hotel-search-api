@@ -32,7 +32,7 @@ def extract_words(string: str):
         error_msg.append('宿泊日数が入力されていません。02泊のように泊をつけて、半角数字2桁で入力してください。')
 
     if error_msg:
-        error_text = '\n'.join(error_msg)
+        error_text = '\n\n'.join(error_msg)
         return error_text
 
     place = place_search.group(1)
@@ -132,7 +132,7 @@ def hotel_search(place, check_in, check_out, hits=5):
             print('アクセス　　:', access)
             print('電話番号　　:', telephone_no)
             print('最寄り駅　　:', nearest_station)
-            print('URL　　　　:', hotel_information_url)
+            print('URL 　　　 :', hotel_information_url)
             print('------------------------------------------------')
 
         print(place, 'の周辺3km圏内に', '全', record_count, '件のホテルが見つかりました。')

@@ -60,10 +60,11 @@ def handle_message(event):
     else:
         msg = results
 
-    line_bot_api.reply_message(
-        event.reply_token,
-        TextSendMessage(text=msg)
-    )
+    for _ in range(2):
+        line_bot_api.reply_message(
+            event.reply_token,
+            TextSendMessage(text=msg)
+        )
 
 
 if __name__ == '__main__':
