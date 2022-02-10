@@ -59,12 +59,11 @@ def handle_message(event):
         msg = hotel.hotel_search(*results, hits=5)
     else:
         msg = results
-        msg = os.environ['RAKUTEN_APPLICATION_ID']
-    for _ in range(2):
-        line_bot_api.reply_message(
-            event.reply_token,
-            TextSendMessage(text=msg)
-        )
+
+    line_bot_api.reply_message(
+        event.reply_token,
+        TextSendMessage(text=msg)
+    )
 
 
 if __name__ == '__main__':
