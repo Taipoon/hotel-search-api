@@ -28,7 +28,7 @@ handler = WebhookHandler(YOUR_CHANNEL_SECRET)
 
 @app.route('/')
 def hello_world():
-    return "Hello World!"
+    return "<h1>It works!</h1><p>API practical and hands-on.</p>"
 
 
 @app.route('/callback', methods=['POST'])
@@ -62,7 +62,7 @@ def handle_message(event):
 
     line_bot_api.reply_message(
         event.reply_token,
-        TextSendMessage(text=msg)
+        TextSendMessage(text=msg[0][0]['hotelBasicInfo']['hotelName'])
     )
 
 
